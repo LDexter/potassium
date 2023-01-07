@@ -2,11 +2,7 @@ local ObjBase
 do
 	local _class_0
 	local _base_0 = {
-		display = function(self, pos, size, style)
-			self.pos = pos
-			self.size = size
-			self.style = style
-		end
+		render = function(self) end
 	}
 	if _base_0.__index == nil then
 		_base_0.__index = _base_0

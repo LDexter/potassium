@@ -6,4 +6,4 @@ class ObjBase
         @size = {width, height}
         @style = style
     -- Displaying object
-    display: (@pos, @size, @style)=>
+    render: =>

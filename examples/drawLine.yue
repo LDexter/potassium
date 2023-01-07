@@ -2,4 +2,10 @@ import "potassium"
 
 term.clear!
 
-potassium.utils.draw.drawLine 2, 2, 8, 8
+lines =
+  * {2, 2, 2, 8}
+  * {4, 2, 8, 8}
+  * {14, 2, 10, 8}
+
+for line in *lines
+  potassium.utils.draw.drawLine unpack line

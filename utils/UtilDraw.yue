@@ -1,5 +1,3 @@
-
-
 export plotPixel = (x, y, color) ->
     oldX, oldY = term.getCursorPos!
     oldBg = term.getBackgroundColor!
@@ -9,15 +7,25 @@ export plotPixel = (x, y, color) ->
     term.setBackgroundColor oldBg
     term.setCursorPos oldX, oldY
 
-export drawLine = (stX, stY, enX, enY, color = colors.white) ->
-    dX = enX - stX
-    dY = enY - stY
-    d = 2 * dY - dX
-    plotY = stY
-
-    for plotX = stX, enX
-        plotPixel(plotX, plotY, color)
-        if d > 0
-            plotY += 1
-            d -= 2 * dX
-        d = d + 2 * dY
+export drawLine = (x0, y0, x1, y1, color = colors.white) ->
+    dx = math.abs(x1 - x0)
+    sx = if x0 < x1 then 1 else -1
+    dy = -math.abs(y1 - y0)
+    sy = if y0 < y1 then 1 else -1
+    err = dx + dy
+    
+    while true
+        plotPixel(x0, y0, color)
+        if x0 == x1 and y0 == y1
+          break
+        e2 = 2 * err
+        if e2 >= dy
+            if x0 == x1
+              break
+            err = err + dy
+            x0 = x0 + sx
+        if e2 <= dx
+            if y0 == y1
+              break
+            err = err + dx
+            y0 = y0 + sy

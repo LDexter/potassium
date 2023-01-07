@@ -1,6 +1,9 @@
+-- Class for base object
 class ObjBase
+    -- Constructor
     new:(posX, posY, width, height, style) =>
         @pos = {posX, posY}
         @size = {width, height}
         @style = style
+    -- Displaying object
     display: (@pos, @size, @style)=>

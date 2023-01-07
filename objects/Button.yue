@@ -1,0 +1,5 @@
+-- Bare-bones button class.
+export class Button extends ObjBase
+    new: (posX, posY, width, height, style, onClick) =>
+        super posX, posY, width, height, style
+        @onClick = onClick

@@ -19,7 +19,7 @@ end
 local objects = { }
 for _index_0 = 1, #filteredList do
 	local obj = filteredList[_index_0]
-	objects[#objects + 1] = require("objects." .. tostring(obj))
+	objects[obj] = require("objects." .. tostring(obj))
 end
 objects = objects
 _module_0["objects"] = objects

@@ -1,4 +1,4 @@
-draw = require "utils.UtilDraw"
+import "utils.draw"
 
 -- Class for base object
 class ObjBase

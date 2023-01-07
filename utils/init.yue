@@ -1,3 +1,10 @@
--- Passing UtilDraw for external use
-import "utils.UtilDraw"
-export draw = UtilDraw
+dir = fs.getDir ({...})[2]
+list = fs.list dir
+
+filteredList = [file\gsub(".lua$", "") for file in *list when file\match"lua$" and file != "init.lua"]
+
+utils = {}
+
+utils[util] = require "utils.#{util}" for util in *filteredList
+
+export default utils

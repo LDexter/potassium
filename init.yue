@@ -5,15 +5,8 @@ oldPath = package.path
 
 package.path = "/#{dir}/?.lua;/#{dir}/?/init.lua;/rom/modules/main/?.lua"
 
--- Passing potassium for external use
-import "utils"
-import "objects"
-
-potassium = {
-    :utils
-    :objects
-}
+import "main"
 
 package.path = oldPath
 
-potassium
+main

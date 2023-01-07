@@ -1,4 +1,4 @@
-local draw = require("utils.UtilDraw")
+local draw = require("utils.draw")
 local ObjBase
 do
 	local _class_0

@@ -1,0 +1,24 @@
+import "objects"
+import "utils"
+
+potassium = {
+  :objects
+  :utils
+  running: false
+}
+
+objectList = {}
+
+potassium.run = ->
+  updateTimer = os.startTimer 0.10
+  eventArgs = os.pullEvent!
+  eventName = table.remove eventArgs, 1
+  
+  if eventName == "timer" and eventArgs[1] == updateTimer
+    updateTimer = os.startTimer 0.10
+  else
+    for _, obj in pairs objectList do
+      if obj.events[eventName] then
+        obj\event eventName, eventArgs
+
+potassium

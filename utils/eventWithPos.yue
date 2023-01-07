@@ -1,0 +1,7 @@
+export default {
+  monitor_touch: true
+  mouse_click: true
+  mouse_drag: true
+  mouse_scrol: true
+  mouse_up: true
+}

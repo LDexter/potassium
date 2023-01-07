@@ -6,6 +6,6 @@ filteredList = [file\gsub(".lua$", "") for file in *list when file\match"lua$" a
 
 objects = {}
 
-objects[] = require "objects.#{obj}" for obj in *filteredList
+objects[obj] = require "objects.#{obj}" for obj in *filteredList
 
 export objects = objects

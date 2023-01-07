@@ -1,0 +1,5 @@
+import "potassium"
+
+term.clear!
+
+potassium.utils.draw.drawRectangle 2, 2, 8, 8

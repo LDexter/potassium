@@ -11,46 +11,57 @@ plotPixel = function(x, y, color)
 end
 _module_0["plotPixel"] = plotPixel
 local drawLine
-drawLine = function(x0, y0, x1, y1, color)
+drawLine = function(startX, startY, endX, endY, color)
 	if color == nil then
 		color = colors.white
 	end
-	local dx = math.abs(x1 - x0)
+	local dx = math.abs(endX - startX)
 	local sx
-	if x0 < x1 then
+	if startX < endX then
 		sx = 1
 	else
 		sx = -1
 	end
-	local dy = -math.abs(y1 - y0)
+	local dy = -math.abs(endY - startY)
 	local sy
-	if y0 < y1 then
+	if startY < endY then
 		sy = 1
 	else
 		sy = -1
 	end
 	local err = dx + dy
 	while true do
-		plotPixel(x0, y0, color)
-		if x0 == x1 and y0 == y1 then
+		plotPixel(startX, startY, color)
+		if startX == endX and startY == endY then
 			break
 		end
 		local e2 = 2 * err
 		if e2 >= dy then
-			if x0 == x1 then
+			if startX == endX then
 				break
 			end
 			err = err + dy
-			x0 = x0 + sx
+			startX = startX + sx
 		end
 		if e2 <= dx then
-			if y0 == y1 then
+			if startY == endY then
 				break
 			end
 			err = err + dx
-			y0 = y0 + sy
+			startY = startY + sy
 		end
 	end
 end
 _module_0["drawLine"] = drawLine
+local drawRectangle
+drawRectangle = function(startX, startY, endX, endY, color)
+	if color == nil then
+		color = colors.white
+	end
+	drawLine(startX, startY, endX, startY, color)
+	drawLine(endX, startY, endX, endY, color)
+	drawLine(startX, startY, startX, endY, color)
+	return drawLine(startX, endY, endX, endY, color)
+end
+_module_0["drawRectangle"] = drawRectangle
 return _module_0

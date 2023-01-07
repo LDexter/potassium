@@ -22,7 +22,7 @@ export drawLine = (startX, startY, endX, endY, color = colors.white) ->
     
     -- Looping through coord map
     while true
-        plotPixel(startX, startX, color)
+        plotPixel(startX, startY, color)
         if startX == endX and startY == endY
             break
         e2 = 2 * err
@@ -36,3 +36,9 @@ export drawLine = (startX, startY, endX, endY, color = colors.white) ->
                 break
             err = err + dx
             startY = startY + sy
+
+export drawRectangle = (startX, startY, endX, endY, color = colors.white) ->
+    drawLine startX, startY, endX, startY, color
+    drawLine endX, startY, endX, endY, color
+    drawLine startX, startY, startX, endY, color
+    drawLine startX, endY, endX, endY, color

@@ -1,19 +1,26 @@
+-- Plotting coloured pixels at provided coords
 export plotPixel = (x, y, color) ->
+    -- Storing current state of terminal
     oldX, oldY = term.getCursorPos!
     oldBg = term.getBackgroundColor!
+    -- Changing state for plotting
     term.setCursorPos x, y
     term.setBackgroundColor color
     term.write " "
+    -- Restoring state
     term.setBackgroundColor oldBg
     term.setCursorPos oldX, oldY
 
+-- Drawing lines with pixel looping
 export drawLine = (startX, startY, endX, endY, color = colors.white) ->
+    -- Mapping start and end coords
     dx = math.abs(endX - startX)
     sx = if startX < endX then 1 else -1
     dy = -math.abs(endY - startY)
     sy = if startY < endY then 1 else -1
     err = dx + dy
     
+    -- Looping through coord map
     while true
         plotPixel(startX, startX, color)
         if startX == endX and startY == endY

@@ -1,7 +1,7 @@
+-- Finding absolute path
 dir = fs.getDir ({...})[2]
 
+-- Passing potassium for external use
 potassium = {}
-
 potassium.utils = require "#{dir}.utils"
-
 potassium

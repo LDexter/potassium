@@ -2,10 +2,17 @@ import "potassium"
 
 term.clear!
 
-lines =
-  * {2, 2, 2, 8}
-  * {4, 2, 8, 8}
-  * {14, 2, 10, 8}
+term.setCursorPos 1, 1
+print "Left click to draw line, right click to set line start."
 
-for line in *lines
-  potassium.utils.draw.drawLine unpack line
+local w, h = term.getSize!
+local startX, startY = math.floor(w / 2), math.floor(h / 2)
+
+while true
+  event = {os.pullEvent "mouse_click"}
+  {_, btn, x, y} = event
+  switch btn
+    when 1
+      potassium.utils.draw.drawLine startX, startY, x, y
+    when 2
+      startX, startY = x, y

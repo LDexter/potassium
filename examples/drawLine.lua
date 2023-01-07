@@ -1,26 +1,19 @@
 local potassium = require("potassium")
 term.clear()
-local lines = {
-	{
-		2,
-		2,
-		2,
-		8
-	},
-	{
-		4,
-		2,
-		8,
-		8
-	},
-	{
-		14,
-		2,
-		10,
-		8
+term.setCursorPos(1, 1)
+print("Left click to draw line, right click to set line start.")
+local w, h
+w, h = term.getSize()
+local startX, startY
+startX, startY = math.floor(w / 2), math.floor(h / 2)
+while true do
+	local event = {
+		os.pullEvent("mouse_click")
 	}
-}
-for _index_0 = 1, #lines do
-	local line = lines[_index_0]
-	potassium.utils.draw.drawLine(unpack(line))
+	local btn, x, y = event[2], event[3], event[4]
+	if 1 == btn then
+		potassium.utils.draw.drawLine(startX, startY, x, y)
+	elseif 2 == btn then
+		startX, startY = x, y
+	end
 end

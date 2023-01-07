@@ -3,7 +3,9 @@ local Button
 do
 	local _class_0
 	local _parent_0 = ObjBase
-	local _base_0 = { }
+	local _base_0 = {
+		click = function(self) end
+	}
 	for _key_0, _val_0 in pairs(_parent_0.__base) do
 		if _base_0[_key_0] == nil and _key_0:match("^__") and not (_key_0 == "__index" and _val_0 == _parent_0.__base) then
 			_base_0[_key_0] = _val_0

@@ -1,0 +1,22 @@
+import "potassium"
+
+term.clear!
+
+-- Displaying example instructions
+term.setCursorPos 1, 1
+print "Left click to draw object, right click to set object start."
+
+-- Finding terminal center
+local w, h = term.getSize!
+local startX, startY = math.floor(w / 2), math.floor(h / 2)
+
+-- Initiating example environment
+while true
+    -- Recording input
+    event = {os.pullEvent "mouse_click"}
+    {_, btn, x, y} = event
+    
+    -- Either starting or ending object based on mouse button
+    switch btn
+        when 1 then potassium.utils.draw.drawLine startX, startY, x, y
+        when 2 then startX, startY = x, y

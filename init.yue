@@ -1,0 +1,7 @@
+dir = fs.getDir ({...})[2]
+
+potassium = {}
+
+potassium.utils = require "#{dir}.utils"
+
+potassium

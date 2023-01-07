@@ -1,0 +1,7 @@
+dir = fs.getDir ({...})[2]
+
+draw = {}
+
+draw = require "#{dir}.UtilDraw"
+
+export draw = draw

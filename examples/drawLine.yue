@@ -1,0 +1,5 @@
+import "potassium"
+
+term.clear!
+
+potassium.utils.draw.drawLine 2, 2, 8, 8

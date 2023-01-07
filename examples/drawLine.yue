@@ -9,10 +9,10 @@ local w, h = term.getSize!
 local startX, startY = math.floor(w / 2), math.floor(h / 2)
 
 while true
-  event = {os.pullEvent "mouse_click"}
-  {_, btn, x, y} = event
-  switch btn
+    event = {os.pullEvent "mouse_click"}
+    {_, btn, x, y} = event
+    switch btn
     when 1
-      potassium.utils.draw.drawLine startX, startY, x, y
+        potassium.utils.draw.drawLine startX, startY, x, y
     when 2
-      startX, startY = x, y
+        startX, startY = x, y

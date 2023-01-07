@@ -1,7 +1,3 @@
--- Finding absolute path
-dir = fs.getDir ({...})[2]
-
 -- Passing UtilDraw for external use
-draw = {}
-draw = require "#{dir}.UtilDraw"
-export draw = draw
+import "utils.UtilDraw"
+export draw = UtilDraw

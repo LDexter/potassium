@@ -1,4 +1,5 @@
 local _module_0 = { }
+local ObjBase = require("objects.ObjBase")
 local Button
 do
 	local _class_0

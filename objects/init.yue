@@ -1,0 +1,11 @@
+-- Get path to the current folder.
+dir = fs.getDir ({...})[2]
+list = fs.list dir
+
+filteredList = [file\gsub(".lua$", "") for file in *list when file\match"lua$" and file != "init.lua"]
+
+objects = {}
+
+objects[] = require "objects.#{obj}" for obj in *filteredList
+
+export objects = objects

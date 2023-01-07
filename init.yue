@@ -1,7 +1,19 @@
 -- Finding absolute path
 dir = fs.getDir ({...})[2]
 
+oldPath = package.path
+
+package.path = "/#{dir}/?.lua;/#{dir}/?/init.lua;/rom/modules/main/?.lua"
+
 -- Passing potassium for external use
-potassium = {}
-potassium.utils = require "#{dir}.utils"
+import "utils"
+import "objects"
+
+potassium = {
+    :utils
+    :objects
+}
+
+package.path = oldPath
+
 potassium

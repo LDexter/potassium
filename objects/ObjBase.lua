@@ -1,4 +1,4 @@
-local draw = require("../utils/UtilDraw")
+local draw = require("utils.UtilDraw")
 local ObjBase
 do
 	local _class_0
@@ -39,10 +39,5 @@ do
 	})
 	_base_0.__class = _class_0
 	ObjBase = _class_0
-end
-local obj = ObjBase(1, 1, 10, 10, "red")
-local _base_0 = obj
-local _fn_0 = _base_0.render
-return _fn_0 and function(...)
-	return _fn_0(_base_0, ...)
+	return _class_0
 end

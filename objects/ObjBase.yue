@@ -1,4 +1,4 @@
-draw = require "../utils/UtilDraw"
+draw = require "utils.UtilDraw"
 
 -- Class for base object
 class ObjBase
@@ -13,6 +13,3 @@ class ObjBase
     render: =>
         draw.drawRectangle @stPos[1], @stPos[2], @enPos[1], @enPos[2], @style
     -- event:(eventName, eventArgs) =>
-
-obj = ObjBase 1, 1, 10, 10, "red"
-obj\render

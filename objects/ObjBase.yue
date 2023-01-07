@@ -1,0 +1,6 @@
+class ObjBase
+    new:(posX, posY, width, height, style) =>
+        @pos = {posX, posY}
+        @size = {width, height}
+        @style = style
+    display: (@pos, @size, @style)=>

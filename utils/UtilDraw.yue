@@ -1,0 +1,18 @@
+
+
+export plotPixel = (x, y) ->
+    term.setCursorPos(x, y)
+    term.write(" ")
+
+export drawLine = (stX, stY, enX, enY) ->
+    dX = enX - stX
+    dY = enY - stY
+    d = 2 * dY - dX
+    plotY = stY
+
+    for plotX = stX, enX
+        plotPixel(plotX, plotY)
+        if d > 0
+            plotY += 1
+            d -= 2 * dX
+        d = d + 2 * dY
